@@ -30,7 +30,6 @@ export default function WeatherDashboard() {
       setWeather(null);
     }
   };
-
   const fetchForecast = async () => {
     try {
       const response = await fetch(`${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`);
@@ -43,14 +42,12 @@ export default function WeatherDashboard() {
       setForecast(null);
     }
   };
-
   useEffect(() => {
     if (city) {
       fetchWeather();
       fetchForecast();
     }
   }, [city]);
-
   useEffect(() => {
     mapInstance.current = new Map({
       target: mapRef.current,
@@ -64,14 +61,12 @@ export default function WeatherDashboard() {
         zoom: 2,
       }),
     });
-
     return () => {
       if (mapInstance.current) {
         mapInstance.current.setTarget(null);
       }
     };
   }, []);
-
   const updateMap = (lon, lat) => {
     if (mapInstance.current) {
       mapInstance.current.getView().animate({
@@ -81,13 +76,11 @@ export default function WeatherDashboard() {
       });
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchCity = e.target.elements.cityInput.value;
     setCity(searchCity);
   };
-
   return (
     <div className="weather-dashboard">
       <h1>Weather Dashboard</h1>
@@ -100,9 +93,7 @@ export default function WeatherDashboard() {
         />
         <button type="submit">Search</button>
       </form>
-
       {error && <p className="error">{error}</p>}
-
       {weather && (
         <div className="current-weather">
           <h2>Current Weather in {weather.name}</h2>
@@ -117,7 +108,6 @@ export default function WeatherDashboard() {
           <p>{weather.weather[0].description}</p>
         </div>
       )}
-
       {forecast && (
         <div className="forecast">
           <h2>5-Day Forecast</h2>
@@ -136,7 +126,6 @@ export default function WeatherDashboard() {
           </div>
         </div>
       )}
-
       <div className="weather-map">
         <h2>Weather Map</h2>
         <div ref={mapRef} className="map-container"></div>
