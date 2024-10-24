@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../components/weather.css';
+import '../components/Weather.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
@@ -133,3 +133,5 @@ export default function WeatherDashboard() {
     </div>
   );
 }
+
+// finished..
