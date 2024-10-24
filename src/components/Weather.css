@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .weather-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    max-width: 300px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-left: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .current-weather, .forecast, .weather-map {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .forecast-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+  }
+  
+  .forecast-item {
+    text-align: center;
+    min-width: 100px;
+  }
+  
+  .map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 600px) {
+    .weather-dashboard {
+      padding: 10px;
+    }
+  
+    input[type="text"] {
+      width: 100%;
+      max-width: none;
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .forecast-list {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .forecast-item {
+      min-width: auto;
+    }
+  
+    .map-container {
+      height: 300px;
+    }
+  }
+  
+  /* Tablet styles */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .weather-dashboard {
+      padding: 15px;
+    }
+  
+    input[type="text"] {
+      width: 70%;
+    }
+  
+    .forecast-list {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .forecast-item {
+      flex: 0 0 calc(33.333% - 20px);
+    }
+  }
+  
+  /* Laptop styles */
+  @media (min-width: 1025px) {
+    .weather-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  
+    .current-weather {
+      grid-column: 1 / 2;
+    }
+  
+    .forecast {
+      grid-column: 2 / 3;
+    }
+  
+    .weather-map {
+      grid-column: 1 / 3;
+    }
+  }
